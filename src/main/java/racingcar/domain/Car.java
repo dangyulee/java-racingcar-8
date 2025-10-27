@@ -4,6 +4,10 @@ public class Car {
     private final String name;
     private int position = 0;
 
+    public String getName() {
+        return name;
+    }
+
     public int getPosition() {
         return position;
     }
@@ -18,10 +22,6 @@ public class Car {
             throw new IllegalArgumentException("자동차 이름이 비어있습니다.");
         if (name.trim().length() > 5)
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
-    }
-
-    public String name() {
-        return name;
     }
 
     public void move(boolean canMove) {

@@ -1,6 +1,6 @@
 # java-racingcar-precourse
 
-# 구현할 기능 목록
+## 구현할 기능 목록
 1. 입력값 받기 및 검증
 - 자동차 이름 문자열 입력
   - 쉼표를 기준으로 구분
@@ -15,3 +15,27 @@
 3. 우승자 판정 및 출력
 - 완료한 후 우승한 자동차 이름 출력
   - 여러 명일 경우 쉼표를 이용하여 구분
+
+## 프로그램 실행 흐름(MVC 구조)
+Application  
+↓  
+RacingController  
+↓  
+View(InputString)
+↓  
+Domain(Car, RacingGame, RandomNum)
+↓  
+View(OutputView)
+
+## 디렉토리 구조
+calculator  
+┣ controller  
+┃ ┗ RacingController.java  
+┣ domain 
+┃ ┣ Car.java
+┃ ┣ RacingGame.java
+┃ ┗ RandomNum.java
+┣ view
+┃ ┣ InputView.java
+┃ ┗ OutputView.java  
+┗  Application.java

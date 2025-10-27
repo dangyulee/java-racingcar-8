@@ -22,7 +22,7 @@ class CarTest {
         Car testCar = new Car(input);
 
         // then
-        assertThat(testCar.name()).isEqualTo("pobi");
+        assertThat(testCar.getName()).isEqualTo("pobi");
     }
 
     @Test

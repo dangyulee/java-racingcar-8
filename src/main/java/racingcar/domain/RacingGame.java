@@ -43,7 +43,21 @@ public class RacingGame {
     }
 
     public void playOneRound() {
-        cars.forEach(car -> car.move(RandomNum.canMove()));
+        cars.forEach(c -> c.move(RandomNum.canMove()));
         round++;
+    }
+
+    public List<String> findWinners() {
+        int max = cars.stream().mapToInt(car -> car.getPosition()).max().orElse(0);
+        return cars.stream()
+                .filter(c -> c.getPosition() == max)
+                .map(car -> car.getName())
+                .collect(Collectors.toList());
+    }
+
+    public List<Map.Entry<String, Integer>> snapshotPositions() {
+        return cars.stream()
+                .map(c -> Map.entry(c.getName(), c.getPosition()))
+                .collect(Collectors.toList());
     }
 }

@@ -21,7 +21,7 @@ class RacingGameTest {
 
         // then
         assertThat(game.getCars())
-                .extracting(Car::name)
+                .extracting(Car::getName)
                 .containsExactly("pobi", "javaj");
         assertThat(game.getAttempts()).isEqualTo(5);
     }
@@ -77,5 +77,40 @@ class RacingGameTest {
         //then
         assertThat(before).isTrue();
         assertThat(after).isFalse();
+    }
+
+    @Test
+    void 단일우승자() {
+        // given
+        List<String> names = List.of("pobi", "javaj");
+        int attempts = 1;
+
+        RacingGame game = RacingGame.of(names, attempts);
+
+        game.getCars().get(0).move(true);
+
+        // when
+        List<String> winners = game.findWinners();
+
+        // then
+        assertThat(winners).containsExactly("pobi");
+    }
+
+    @Test
+    void 공동우승자() {
+        // given
+        List<String> names = List.of("pobi", "javaj");
+        int attempts = 1;
+
+        RacingGame game = RacingGame.of(names, attempts);
+
+        game.getCars().get(0).move(true);
+        game.getCars().get(1).move(true);
+
+        // when
+        List<String> winners = game.findWinners();
+
+        // then
+        assertThat(winners).containsExactly("pobi", "javaj");
     }
 }
