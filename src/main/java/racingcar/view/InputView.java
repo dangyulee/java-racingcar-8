@@ -11,16 +11,10 @@ public class InputView {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String line = Console.readLine();
         if (line == null || line.trim().isEmpty()) throw new IllegalArgumentException("입력이 비어 있습니다.");
-
         List<String> names = Arrays.stream(line.split(","))
                 .map(String::trim)
                 .collect(Collectors.toList());
-
-        for (String name : names) {
-            if (name.isEmpty()) throw new IllegalArgumentException("특정 이름이 비어있습니다.");
-            if (name.length() > 5) throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다: " + name);
-        }
-            return names;
+        return names;
     }
 
     public static int inputAttempts() {
