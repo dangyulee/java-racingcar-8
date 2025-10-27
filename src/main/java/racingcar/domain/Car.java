@@ -1,12 +1,14 @@
 package racingcar.domain;
 
-import java.util.Objects;
-
-public class Cars {
+public class Car {
     private final String name;
     private int position = 0;
 
-    public Cars(String name) {
+    public int getPosition() {
+        return position;
+    }
+
+    public Car(String name) {
         validateName(name);
         this.name = name;
     }
@@ -22,7 +24,7 @@ public class Cars {
         return name;
     }
 
-    public int position() {
-        return position;
+    public void move(boolean canMove) {
+        if (canMove) position++;
     }
 }

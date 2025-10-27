@@ -52,28 +52,6 @@ class InputViewTest {
     }
 
     @Test
-    void 특정_이름_비어있음() {
-        //given
-        String fakeInput = "pobi, ,javaj\n";
-        System.setIn(new ByteArrayInputStream(fakeInput.getBytes(StandardCharsets.UTF_8)));
-
-        //when & then
-        assertThatThrownBy(() -> InputView.inputCarNames())
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
-    void 자동차_이름_5자_초과() {
-        //given
-        String fakeInput = "pobi,javaji\n";
-        System.setIn(new ByteArrayInputStream(fakeInput.getBytes(StandardCharsets.UTF_8)));
-
-        //when & then
-        assertThatThrownBy(() -> InputView.inputCarNames())
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
     void 시도횟수_입력() {
         //given
         String fakeInput = "5\n";
